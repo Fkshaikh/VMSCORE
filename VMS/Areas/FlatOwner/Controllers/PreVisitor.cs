@@ -36,7 +36,8 @@ public class PreVisitor(IUnitOfWork db) : Controller
 
         };
         // create unique qr url
-        var uniqueQr = QrCodeGeneratorUtility.GenerateQrCode(qrCreationData);
+        // var uniqueQr = QrCodeGeneratorUtility.GenerateQrCode(qrCreationData); // TO be only executed with Windows Environment
+        var uniqueQr = "http://localhost:5000/images/" + body.Name + ".png";
         var preVisitor = new Models.PreVisitor()
         {
             Name = body.Name,
@@ -46,6 +47,8 @@ public class PreVisitor(IUnitOfWork db) : Controller
         };
         db.PreVisitor.Add(preVisitor);
         db.Save();
+        
+        //Add Code to SendSMS
         
         return Ok("PreVisitor Registered Successfully");
 

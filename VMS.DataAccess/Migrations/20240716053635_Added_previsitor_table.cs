@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -7,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace VMS.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class Added_PreVisitor_Table : Migration
+    public partial class Added_previsitor_table : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,7 +21,7 @@ namespace VMS.DataAccess.Migrations
                     FlatOwnerId = table.Column<int>(type: "integer", nullable: false),
                     PhoneNumber = table.Column<string>(type: "text", nullable: false),
                     UniqueQR = table.Column<string>(type: "text", nullable: false),
-                    Photo = table.Column<string>(type: "text", nullable: false),
+                    Photo = table.Column<byte[]>(type: "bytea", nullable: true)
                 },
                 constraints: table =>
                 {
